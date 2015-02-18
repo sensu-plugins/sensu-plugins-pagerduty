@@ -1,21 +1,31 @@
-## Sensu-Plugins-disk-checks
+## Sensu-Plugins-pagerduty
 
-[![Build Status](https://travis-ci.org/sensu-plugins/sensu-plugins-pagerduty.svg?branch=master)][1]
-[![Gem Version](https://badge.fury.io/rb/sensu-plugins-pagerduty.svg)][2]
-[![Code Climate](https://codeclimate.com/github/sensu-plugins/sensu-plugins-pagerduty/badges/gpa.svg)][3]
-[![Test Coverage](https://codeclimate.com/github/sensu-plugins/sensu-plugins-pagerduty/badges/coverage.svg)][4]
-[![Dependency Status](https://gemnasium.com/sensu-plugins/sensu-plugins-pagerduty.svg)][5]
+[![Build Status](https://travis-ci.org/sensu-plugins/sensu-plugins-pagerduty.svg?branch=master)](https://travis-ci.org/sensu-plugins/sensu-plugins-pagerduty)
+[![Gem Version](https://badge.fury.io/rb/sensu-plugins-pagerduty.svg)](http://badge.fury.io/rb/sensu-plugins-pagerduty)
+[![Code Climate](https://codeclimate.com/github/sensu-plugins/sensu-plugins-pagerduty/badges/gpa.svg)](https://codeclimate.com/github/sensu-plugins/sensu-plugins-pagerduty)
+[![Test Coverage](https://codeclimate.com/github/sensu-plugins/sensu-plugins-pagerduty/badges/coverage.svg)](https://codeclimate.com/github/sensu-plugins/sensu-plugins-pagerduty)
+[![Dependency Status](https://gemnasium.com/sensu-plugins/sensu-plugins-pagerduty.svg)](https://gemnasium.com/sensu-plugins/sensu-plugins-pagerduty)
 
 ## Functionality
 
 ## Files
- *
- *
- *
- *
+ * bin/handler-pagerdut
 
 ## Usage
 
+```
+{
+  "pagerduty": {
+    "api_key": "12345",
+    "team_name1": {
+      "api_key": "23456"
+    },
+    "team_name2": {
+      "api_key": "34567"
+    }
+  }
+}
+```
 ## Installation
 
 Add the public key (if you haven’t already) as a trusted certificate
@@ -41,7 +51,7 @@ Using the Sensu **sensu_gem** LWRP
 ```
 sensu_gem 'sensu-plugins-pagerduty' do
   options('--prerelease')
-  version '0.0.1.alpha.4'
+  version '0.0.1'
 end
 ```
 
@@ -49,14 +59,8 @@ Using the Chef **gem_package** resource
 ```
 gem_package 'sensu-plugins-pagerduty' do
   options('--prerelease')
-  version '0.0.1.alpha.4'
+  version '0.0.1'
 end
 ```
 
 ## Notes
-
-[1]:[https://travis-ci.org/sensu-plugins/sensu-plugins-pagerduty]
-[2]:[http://badge.fury.io/rb/sensu-plugins-pagerduty]
-[3]:[https://codeclimate.com/github/sensu-plugins/sensu-plugins-pagerduty]
-[4]:[https://codeclimate.com/github/sensu-plugins/sensu-plugins-pagerduty]
-[5]:[https://gemnasium.com/sensu-plugins/sensu-plugins-pagerduty]
