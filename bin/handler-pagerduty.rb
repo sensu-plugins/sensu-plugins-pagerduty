@@ -26,7 +26,7 @@ class Pagerduty < Sensu::Handler
     [source, @event['check']['name']].join('/')
   end
 
-  def handle
+  def handle # rubocop:disable all
     if @event['check']['pager_team']
       api_key = settings['pagerduty'][@event['check']['pager_team']]['api_key']
     else
