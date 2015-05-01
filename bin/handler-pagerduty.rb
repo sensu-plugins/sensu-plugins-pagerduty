@@ -17,8 +17,11 @@ require 'rubygems' if RUBY_VERSION < '1.9.0'
 require 'sensu-handler'
 require 'redphone/pagerduty'
 
+#
+# Pagerduty
+#
 class Pagerduty < Sensu::Handler
-  def incident_key
+  def incident_key # rubocop:disable all
     source = @event['check']['source'] || @event['client']['name']
     [source, @event['check']['name']].join('/')
   end
