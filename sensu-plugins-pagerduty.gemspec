@@ -35,7 +35,7 @@ Gem::Specification.new do |s|
   s.signing_key            = File.expand_path(pvt_key) if $PROGRAM_NAME =~ /gem\z/
   s.summary                = 'Sensu plugins for pagerduty'
   s.test_files             = s.files.grep(%r{^(test|spec|features)/})
-  s.version                = SensuPluginsInfluxdb::Version::VER_STRING
+  s.version                = SensuPluginsPagerduty::Version::VER_STRING
 
   s.add_runtime_dependency 'redphone',     '0.0.6'
   s.add_runtime_dependency 'pagerduty',    '2.0.1'
