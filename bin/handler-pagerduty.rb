@@ -31,8 +31,8 @@ class Pagerduty < Sensu::Handler
     else
       api_key = settings['pagerduty']['api_key']
     end
-    incident_key_prefix = settings[config[:json_config]]['incident_key_prefix']
-    description_prefix = settings[config[:json_config]]['description_prefix']
+    incident_key_prefix = settings['pagerduty']['incident_key_prefix']
+    description_prefix = settings['pagerduty']['description_prefix']
     begin
       timeout(10) do
         response = case @event['action']
