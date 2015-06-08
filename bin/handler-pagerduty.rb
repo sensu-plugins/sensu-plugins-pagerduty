@@ -21,10 +21,10 @@ require 'redphone/pagerduty'
 #
 class Pagerduty < Sensu::Handler
   option :json_config,
-    description: 'Config Name',
-    short: '-j JsonConfig',
-    long: '--json_config JsonConfig',
-    required: false
+         description: 'Config Name',
+         short: '-j JsonConfig',
+         long: '--json_config JsonConfig',
+         required: false
 
   def incident_key # rubocop:disable all
     source = @event['check']['source'] || @event['client']['name']
