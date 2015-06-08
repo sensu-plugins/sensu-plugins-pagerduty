@@ -20,19 +20,26 @@ require 'redphone/pagerduty'
 # Pagerduty
 #
 class Pagerduty < Sensu::Handler
+  option :json_config,
+    description: 'Config Name',
+    short: '-j JsonConfig',
+    long: '--json_config JsonConfig',
+    required: false
+
   def incident_key # rubocop:disable all
     source = @event['check']['source'] || @event['client']['name']
     [source, @event['check']['name']].join('/')
   end
 
   def handle # rubocop:disable all
+    json_config = config[:json_config] || 'pagerduty'
     if @event['check']['pager_team']
-      api_key = settings['pagerduty'][@event['check']['pager_team']]['api_key']
+      api_key = settings[json_config][@event['check']['pager_team']]['api_key']
     else
-      api_key = settings['pagerduty']['api_key']
+      api_key = settings[json_config]['api_key']
     end
-    incident_key_prefix = settings[config[:json_config]]['incident_key_prefix']
-    description_prefix = settings[config[:json_config]]['description_prefix']
+    incident_key_prefix = settings[json_config]['incident_key_prefix']
+    description_prefix = settings[json_config]['description_prefix']
     begin
       timeout(10) do
         response = case @event['action']
@@ -48,7 +55,7 @@ class Pagerduty < Sensu::Handler
                        service_key: api_key,
                        incident_key: [incident_key_prefix, incident_key].compact.join('')
                      )
-                    end
+                   end
         if response['status'] == 'success'
           puts 'pagerduty -- ' + @event['action'].capitalize + 'd incident -- ' + incident_key
         else
