@@ -24,7 +24,8 @@ class Pagerduty < Sensu::Handler
          description: 'Config Name',
          short: '-j JsonConfig',
          long: '--json_config JsonConfig',
-         required: false
+         required: false,
+         default: 'pagerduty'
 
   def incident_key # rubocop:disable all
     source = @event['check']['source'] || @event['client']['name']
@@ -32,7 +33,7 @@ class Pagerduty < Sensu::Handler
   end
 
   def handle # rubocop:disable all
-    json_config = config[:json_config] || 'pagerduty'
+    json_config = config[:json_config]
     if @event['check']['pager_team']
       api_key = settings[json_config][@event['check']['pager_team']]['api_key']
     else
