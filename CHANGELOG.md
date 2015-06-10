@@ -12,6 +12,7 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 
 ### Changed
 - removed cruft from /lib
+- added a new option for specifying the location of the json config file
 
 ## 0.0.1 - 2015-04-29
 
