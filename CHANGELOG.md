@@ -5,6 +5,16 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 
 ## Unreleased][unreleased]
 
+## [0.0.4] - 2015-07-11
+### Changed
+- updated documentation links in the README and CONTRIBUTING
+- set deps in gemspec and rakfile to be in alpha order
+- removed unused tasks from rakefile
+
+### Fixed
+- fix binstubs to only be created for ruby files
+
+
 ## [0.0.3] - 2015-06-26
 ## Added
 - added option for json_config
