@@ -14,6 +14,8 @@
 
 ## Usage
 
+PagerDuty supports dedup. Dedup is useful when you want to create a single alert (for a group of checks). Only one alert is sent out even if the checks fail at the same time. The following example groups check_service_`n` together for a single host. `dedup_rules` take in regular expressions as keys and re-write rules as values. `dedup_rules` entry is optional. 
+
 ```
 {
   "pagerduty": {
@@ -23,6 +25,9 @@
     },
     "team_name2": {
       "api_key": "34567"
+    },
+    "dedup_rules": {
+      "(.*)/check_service_(\\d+)": "\\1/check_service"
     }
   }
 }
