@@ -4,6 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachangelog.com/)
 
 ## Unreleased
+- Added support for PagerDuty alert deduping.  See the Readme file for an example.
 
 ## [0.0.5] - 2015-07-14
 ### Changed
