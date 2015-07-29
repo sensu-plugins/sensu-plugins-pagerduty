@@ -29,7 +29,12 @@ class Pagerduty < Sensu::Handler
 
   def incident_key # rubocop:disable all
     source = @event['check']['source'] || @event['client']['name']
-    [source, @event['check']['name']].join('/')
+    incident_id = [source, @event['check']['name']].join('/')
+    dedup_rules = settings['pagerduty']['dedup_rules'] || {}
+    dedup_rules.each do |key, val|
+      incident_id = incident_id.gsub(Regexp.new(key), val)
+    end
+    incident_id
   end
 
   def handle # rubocop:disable all
