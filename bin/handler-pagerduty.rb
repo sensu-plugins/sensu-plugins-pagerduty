@@ -27,7 +27,7 @@ class Pagerduty < Sensu::Handler
          required: false,
          default: 'pagerduty'
 
-  def incident_key # rubocop:disable all
+  def incident_key
     source = @event['check']['source'] || @event['client']['name']
     incident_id = [source, @event['check']['name']].join('/')
     dedup_rules = settings['pagerduty']['dedup_rules'] || {}
@@ -37,7 +37,7 @@ class Pagerduty < Sensu::Handler
     incident_id
   end
 
-  def handle # rubocop:disable all
+  def handle
     json_config = config[:json_config]
     if @event['check']['pager_team']
       api_key = settings[json_config][@event['check']['pager_team']]['api_key']
