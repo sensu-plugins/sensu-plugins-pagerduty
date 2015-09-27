@@ -28,9 +28,10 @@ class Pagerduty < Sensu::Handler
          default: 'pagerduty'
 
   def incident_key
+    json_config = config[:json_config]
     source = @event['check']['source'] || @event['client']['name']
     incident_id = [source, @event['check']['name']].join('/')
-    dedup_rules = settings['pagerduty']['dedup_rules'] || {}
+    dedup_rules = settings[json_config]['dedup_rules'] || {}
     dedup_rules.each do |key, val|
       incident_id = incident_id.gsub(Regexp.new(key), val)
     end
