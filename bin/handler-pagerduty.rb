@@ -18,7 +18,7 @@
 #
 
 require 'sensu-handler'
-require 'redphone/pagerduty'
+require 'pagerduty'
 
 #
 # Pagerduty
@@ -54,25 +54,23 @@ class Pagerduty < Sensu::Handler
     incident_key_prefix = settings[json_config]['incident_key_prefix']
     description_prefix = settings[json_config]['description_prefix']
     begin
-      timeout(10) do
-        response = case @event['action']
-                   when 'create'
-                     Redphone::Pagerduty.trigger_incident(
-                       service_key: api_key,
-                       incident_key: [incident_key_prefix, incident_key].compact.join(''),
-                       description: [description_prefix, event_summary].compact.join(' '),
-                       details: @event
-                     )
-                   when 'resolve'
-                     Redphone::Pagerduty.resolve_incident(
-                       service_key: api_key,
-                       incident_key: [incident_key_prefix, incident_key].compact.join('')
-                     )
-                   end
-        if response['status'] == 'success'
+      timeout(5) do
+        pagerduty = Pagerduty.new(api_key)
+
+        begin
+          case @event['action']
+          when 'create'
+            pagerduty.trigger([description_prefix, event_summary].compact.join(' '),
+                              incident_key: [incident_key_prefix, incident_key].compact.join(''),
+                              details: @event)
+          when 'resolve'
+            pagerduty.get_incident([incident_key_prefix, incident_key].compact.join('')).resolve(
+              description: [description_prefix, event_summary].compact.join(' '), details: @event)
+          end
           puts 'pagerduty -- ' + @event['action'].capitalize + 'd incident -- ' + incident_key
-        else
-          puts 'pagerduty -- failed to ' + @event['action'] + ' incident -- ' + incident_key
+        rescue Net::HTTPServerException => error
+          puts 'pagerduty -- failed to ' + @event['action'] + ' incident -- ' + incident_key + ' -- ' +
+            error.response.code + ' ' + error.response.message + ': ' + error.response.body
         end
       end
     rescue Timeout::Error

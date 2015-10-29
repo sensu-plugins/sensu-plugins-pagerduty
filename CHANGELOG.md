@@ -6,6 +6,10 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 ## Unreleased
 - nothing
 
+## [0.0.8]
+### Changed
+- Use pagerduty gem instead of redphone, now also sends description and event details when resolving
+
 ## [0.0.7] - 2015-10-29
 ### Changed
 - handler-pagerduty: use json_config for incident key dedup_rules
