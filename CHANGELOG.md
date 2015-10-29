@@ -6,7 +6,12 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 ## Unreleased
 - nothing
 
-## [0.0.6] - 2015-31-07
+## [0.0.7] - 2015-10-29
+### Changed
+- handler-pagerduty: use json_config for incident key dedup_rules
+- adding override from client
+
+## [0.0.6] - 2015-07-31
 ### Added
 - Added support for PagerDuty alert deduping.  See the Readme file for an example.
 
