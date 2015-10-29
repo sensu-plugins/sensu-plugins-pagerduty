@@ -23,7 +23,7 @@ require 'pagerduty'
 #
 # Pagerduty
 #
-class Pagerduty < Sensu::Handler
+class PagerdutyHandler < Sensu::Handler
   option :json_config,
          description: 'Config Name',
          short: '-j JsonConfig',
