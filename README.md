@@ -11,6 +11,7 @@
 
 ## Files
  * bin/handler-pagerduty.rb
+ * bin/mutator-pagerduty-priority-override.rb
 
 ## Usage
 
