@@ -4,9 +4,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachangelog.com/)
 
 ## Unreleased
-- nothing
 
-## [0.0.8]
+## [0.0.8] - 2015-12-10
+### Added
+- Added a handler to allow overrides based on priority, now you can different 
+  alerts trigger different PagerDuty API endpoints. For example one can hit a high 
+  priority endpoint but warning can hit a lowpriority point.
+
 ### Changed
 - Use pagerduty gem instead of redphone, now also sends description and event details when resolving
 
