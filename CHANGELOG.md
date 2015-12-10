@@ -5,6 +5,10 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 
 ## Unreleased
 
+## [0.0.9] - 2015-12-10
+### Fixed
+- fix dependencies
+
 ## [0.0.8] - 2015-12-10
 ### Added
 - Added a handler to allow overrides based on priority, now you can different 

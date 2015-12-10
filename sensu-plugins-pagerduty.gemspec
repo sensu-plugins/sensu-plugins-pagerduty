@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.authors                = ['Sensu-Plugins and contributors']
   s.cert_chain             = ['certs/sensu-plugins.pem']
   s.date                   = Date.today.to_s
-  s.description            = 'Sensu plugins for pagerduty'
+  s.description            = 'This plugin provides a Sensu handler for PagerDuty'
   s.email                  = '<sensu-users@googlegroups.com>'
   s.executables            = Dir.glob('bin/**/*.rb').map { |file| File.basename(file) }
   s.files                  = Dir.glob('{bin,lib}/**/*') + %w(LICENSE README.md CHANGELOG.md)
@@ -38,8 +38,7 @@ Gem::Specification.new do |s|
   s.version                = SensuPluginsPagerduty::Version::VER_STRING
 
   s.add_runtime_dependency 'sensu-plugin', '1.2.0'
-  s.add_runtime_dependency 'pagerduty',    '~> 2.0.1'
-  s.add_runtime_dependency 'retriable',	   '~> 2.1'
+  s.add_runtime_dependency 'pagerduty',    '2.0.1'
 
   s.add_development_dependency 'bundler',                   '~> 1.7'
   s.add_development_dependency 'codeclimate-test-reporter', '~> 0.4'
