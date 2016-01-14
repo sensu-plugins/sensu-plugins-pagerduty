@@ -24,7 +24,7 @@ end
 RuboCop::RakeTask.new
 
 RSpec::Core::RakeTask.new(:spec) do |r|
-  r.pattern = FileList['**/**/*_spec.rb']
+  r.pattern = FileList['test/**/*_spec.rb']
 end
 
 desc 'Make all plugins executable'
