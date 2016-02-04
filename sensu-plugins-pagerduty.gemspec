@@ -23,7 +23,7 @@ Gem::Specification.new do |s|
   s.license                = 'MIT'
   s.metadata               = { 'maintainer'         => '@mattyjones',
                                'development_status' => 'active',
-                               'production_status'  => 'unstable - testing recommended',
+                               'production_status'  => 'stable - production ready',
                                'release_draft'      => 'false',
                                'release_prerelease' => 'false'
   }
