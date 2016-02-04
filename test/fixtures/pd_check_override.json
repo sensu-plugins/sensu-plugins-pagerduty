@@ -1,0 +1,37 @@
+{
+  "action": "create",
+  "occurrences": 1,
+  "client": {
+    "name": "i-424242",
+    "address": "8.8.8.8",
+    "subscriptions": [
+      "production",
+      "webserver",
+      "mysql"
+    ],
+    "timestamp": 1326390159,
+    "pd_override": {
+      "frontend_http_check": {
+        "warning": "CHECK_WARNING_OVERRIDE",
+        "critical": "CHECK_CRITICAL_OVERRIDE"
+      }
+    }
+  },
+  "check":{
+    "name": "frontend_http_check",
+    "issued": 1326390169,
+    "subscribers":[
+      "frontend"
+    ],
+    "pager_team": "CHECK_OVERRIDE",
+    "interval": 60,
+    "command": "check_http -I 127.0.0.1 -u http://web.example.com/healthcheck.html -R \'pageok\'",
+    "output": "HTTP CRITICAL: HTTP/1.1 503 Service Temporarily Unavailable",
+    "status": 2,
+    "handler": "slack",
+    "history": [
+      "0",
+      "2"
+    ]
+  }
+}

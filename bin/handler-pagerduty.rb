@@ -32,7 +32,6 @@ class PagerdutyHandler < Sensu::Handler
          default: 'pagerduty'
 
   def incident_key
-    json_config = config[:json_config]
     source = @event['check']['source'] || @event['client']['name']
     incident_id = [source, @event['check']['name']].join('/')
     dedup_rules = settings[json_config]['dedup_rules'] || {}
@@ -42,20 +41,27 @@ class PagerdutyHandler < Sensu::Handler
     incident_id
   end
 
-  def handle
-    json_config = config[:json_config]
-    if @event['client']['pager_team']
-      api_key = settings[json_config][@event['client']['pager_team']]['api_key']
-    elsif @event['check']['pager_team']
-      api_key = settings[json_config][@event['check']['pager_team']]['api_key']
-    else
-      api_key = settings[json_config]['api_key']
-    end
+  def json_config
+    @json_config ||= config[:json_config]
+  end
+
+  def api_key
+    @api_key ||=
+      if @event['client']['pager_team']
+        settings[json_config][@event['client']['pager_team']]['api_key']
+      elsif @event['check']['pager_team']
+        settings[json_config][@event['check']['pager_team']]['api_key']
+      else
+        settings[json_config]['api_key']
+      end
+  end
+
+  def handle(pd_client = nil)
     incident_key_prefix = settings[json_config]['incident_key_prefix']
     description_prefix = settings[json_config]['description_prefix']
     begin
       timeout(5) do
-        pagerduty = Pagerduty.new(api_key)
+        pagerduty = pd_client || Pagerduty.new(api_key)
 
         begin
           case @event['action']

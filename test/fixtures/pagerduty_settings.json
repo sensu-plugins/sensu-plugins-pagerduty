@@ -1,0 +1,11 @@
+{
+  "pagerduty": {
+    "api_key": "BASE_KEY",
+    "CHECK_OVERRIDE": {
+      "api_key": "CHECK_OVERRIDE"
+    },
+    "TEST_TEAM": {
+      "api_key": "CLIENT_OVERRIDE"
+    }
+  }
+}
