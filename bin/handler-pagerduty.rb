@@ -51,6 +51,8 @@ class PagerdutyHandler < Sensu::Handler
         settings[json_config][@event['client']['pager_team']]['api_key']
       elsif @event['check']['pager_team']
         settings[json_config][@event['check']['pager_team']]['api_key']
+      elsif @event['check']['pager_status'] && !settings[json_config][@event['check']['pager_status']]['api_key'].nil?
+        settings[json_config][@event['check']['pager_status']]['api_key']
       else
         settings[json_config]['api_key']
       end
