@@ -1,19 +1,31 @@
 language: ruby
 cache:
-  - bundler
+- bundler
 install:
-  - bundle install
+- bundle install
 rvm:
-  - 1.9.3
-  - 2.0
-  - 2.1
-  - 2.2
+- 1.9.3
+- 2.0
+- 2.1
+- 2.2
 notifications:
   email:
     recipients:
-      - sensu-plugin@sensu-plugins.io
+    - sensu-plugin@sensu-plugins.io
     on_success: change
     on_failure: always
-
 script:
-  - 'bundle exec rake default'
+- bundle exec rake default
+deploy:
+  provider: rubygems
+  api_key:
+    secure: VP2jiKGfuNefc2TarcprEBiZwjdgnSqzh3luK7NAZvFAWYKJI0DxWsgi6NABYgYeCvVTxmbLeNSmN7B20KSu4g6kk7r3cIi9HS95VHHcsme7xi1k0kRgzAGNwFXAVjuebVgqMVpgUkcKrxHt/drtRV6koZZI10EySMiWwB/r5Bg=
+  gem: sensu-plugins-pagerduty
+  on:
+    tags: true
+    all_branches: true
+    rvm: 1.9.3
+    rvm: 2.0
+    rvm: 2.1
+    rvm: 2.2
+    repo: sensu-plugins/sensu-plugins-pagerduty
