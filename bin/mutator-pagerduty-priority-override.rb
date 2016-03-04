@@ -56,16 +56,16 @@ module Sensu
 
         def get_status_string(check)
           status = check[:status]
+          result = 'critical'
           if status == 1
-            return 'warning'
-          elsif status == 0 # rubocop:disable Style/GuardClause
+            result = 'warning'
+          elsif status == 0
             ## 0 means its a resolve event, to know which PagerDuty API to resolve on
             ## we need to look at previous alert
             ## strangely enough the history array in the event is an array of strings...
-            return get_status_string(status: check[:history][-2].to_i)
-          else
-            return 'critical'
+            result = get_status_string(status: check[:history][-2].to_i)
           end
+          result
         end
 
         def get_override(event, check, status)
