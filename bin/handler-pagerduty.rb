@@ -76,7 +76,7 @@ class PagerdutyHandler < Sensu::Handler
           puts 'pagerduty -- ' + @event['action'].capitalize + 'd incident -- ' + incident_key
         rescue Net::HTTPServerException => error
           puts 'pagerduty -- failed to ' + @event['action'] + ' incident -- ' + incident_key + ' -- ' +
-            error.response.code + ' ' + error.response.message + ': ' + error.response.body
+               error.response.code + ' ' + error.response.message + ': ' + error.response.body
         end
       end
     rescue Timeout::Error

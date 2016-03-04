@@ -16,13 +16,15 @@ notifications:
     on_failure: always
 script:
 - bundle exec rake default
+- gem build sensu-plugins-pagerduty.gemspec
+- gem install sensu-plugins-pagerduty-*.gem
 deploy:
   provider: rubygems
   api_key:
-    secure: VP2jiKGfuNefc2TarcprEBiZwjdgnSqzh3luK7NAZvFAWYKJI0DxWsgi6NABYgYeCvVTxmbLeNSmN7B20KSu4g6kk7r3cIi9HS95VHHcsme7xi1k0kRgzAGNwFXAVjuebVgqMVpgUkcKrxHt/drtRV6koZZI10EySMiWwB/r5Bg=
+    secure: E906GFnaEQtLBxVsFt5rIinzVEb3ga8V5rPcxzOkGVWca17ag3pJ9rBXpiDd9zzkAF61zSfW7MbUu9KrddihSddMXM8I1Vt35xGw6pZTNqtzGeZA7egIdxks7XxszibXtZb0pOvBOAg2eGYQARzzJkvhgFPu/pVn5OOj8Oed9zU=
   gem: sensu-plugins-pagerduty
   on:
-    tags: true
+    ags: true
     all_branches: true
     rvm: 1.9.3
     rvm: 2.0

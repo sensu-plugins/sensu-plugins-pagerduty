@@ -58,7 +58,7 @@ module Sensu
           status = check[:status]
           if status == 1
             return 'warning'
-          elsif status == 0
+          elsif status == 0 # rubocop:disable Style/GuardClause
             ## 0 means its a resolve event, to know which PagerDuty API to resolve on
             ## we need to look at previous alert
             ## strangely enough the history array in the event is an array of strings...
