@@ -108,12 +108,11 @@ describe 'Handlers' do
       allow(stub_pd_client).to receive(:get_incident).and_return(stub_incident)
       expect(stub_pd_client).to receive(:get_incident).with('stub_incident_key')
       expect(stub_incident).to receive(:resolve).with(
-        description: 'test_summary',
-        details: {
-          'action' => 'resolve',
-          'occurrences' => 1,
-          'check' => {},
-          'client' => {} })
+        'test_summary',
+        'action' => 'resolve',
+        'occurrences' => 1,
+        'check' => {},
+        'client' => {})
       @handler.handle(stub_pd_client)
     end
   end
