@@ -2,9 +2,10 @@ require 'json'
 require_relative '../spec_helper.rb'
 require_relative '../../bin/handler-pagerduty.rb'
 
+# rubocop:disable Style/ClassVars
 class PagerdutyHandler
   at_exit do
-    exit! 0
+    @@autorun = false
   end
 
   def settings
