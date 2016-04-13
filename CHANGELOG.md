@@ -5,6 +5,7 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 
 ## [Unreleased]
 - fix tests that were always exiting 0
+
 ## [0.0.9] - 2015-12-10
 ### Fixed
 - fix dependencies
@@ -63,8 +64,8 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 - initial release
 
 [Unreleased]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/0.0.9...HEAD
-[0.0.2]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/0.0.8...0.0.9
-[0.0.9]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/0.0.7...0.0.8
+[0.0.9]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/0.0.8...0.0.9
+[0.0.8]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/0.0.7...0.0.8
 [0.0.7]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/0.0.6...0.0.7
 [0.0.6]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/0.0.5...0.0.6
 [0.0.5]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/0.0.4...0.0.5
