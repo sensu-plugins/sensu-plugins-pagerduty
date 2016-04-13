@@ -4,7 +4,15 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachangelog.com/)
 
 ## [Unreleased]
-- fix tests that were always exiting 0
+### Added
+- Add tests (@zbintliff)
+
+### Fixed
+- Fix tests that were always exiting 0
+- Fix resolution of events (#21)
+
+### Changed
+- Update to rubocop 0.37
 
 ## [0.0.9] - 2015-12-10
 ### Fixed
