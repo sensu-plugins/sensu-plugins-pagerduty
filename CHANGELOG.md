@@ -4,6 +4,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachangelog.com/)
 
 ## [Unreleased]
+
+## [1.0.0] - 2016-04-12
+
+NOTE: There is no new functionality in this release but with the addition of test coverage we are
+marking it as a stable 1.0.0 release.
+
 ### Added
 - Add tests (@zbintliff)
 
@@ -71,7 +77,8 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 ### Added
 - initial release
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/0.0.9...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/1.0.0...HEAD
+[1.0.0]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/0.0.9...1.0.0
 [0.0.9]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/0.0.8...0.0.9
 [0.0.8]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/0.0.7...0.0.8
 [0.0.7]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/0.0.6...0.0.7
