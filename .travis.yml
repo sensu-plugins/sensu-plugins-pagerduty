@@ -24,7 +24,7 @@ deploy:
     secure: E906GFnaEQtLBxVsFt5rIinzVEb3ga8V5rPcxzOkGVWca17ag3pJ9rBXpiDd9zzkAF61zSfW7MbUu9KrddihSddMXM8I1Vt35xGw6pZTNqtzGeZA7egIdxks7XxszibXtZb0pOvBOAg2eGYQARzzJkvhgFPu/pVn5OOj8Oed9zU=
   gem: sensu-plugins-pagerduty
   on:
-    ags: true
+    tags: true
     all_branches: true
     rvm: 1.9.3
     rvm: 2.0
