@@ -71,7 +71,8 @@ class PagerdutyHandler < Sensu::Handler
                               details: @event)
           when 'resolve'
             pagerduty.get_incident([incident_key_prefix, incident_key].compact.join('')).resolve(
-              [description_prefix, event_summary].compact.join(' '), @event)
+              [description_prefix, event_summary].compact.join(' '), @event
+            )
           end
           puts 'pagerduty -- ' + @event['action'].capitalize + 'd incident -- ' + incident_key
         rescue Net::HTTPServerException => error

@@ -94,7 +94,9 @@ describe 'Handlers' do
           'action' => 'create',
           'occurrences' => 1,
           'check' => {},
-          'client' => {} })
+          'client' => {}
+        }
+      )
       @handler.handle(stub_pd_client)
     end
 
@@ -113,7 +115,8 @@ describe 'Handlers' do
         'action' => 'resolve',
         'occurrences' => 1,
         'check' => {},
-        'client' => {})
+        'client' => {}
+      )
       @handler.handle(stub_pd_client)
     end
   end
