@@ -56,21 +56,21 @@ class PagerdutyHandler < Sensu::Handler
       end
   end
 
-  def get_proxy_settings
-      proxy_settings = Hash.new
+  def proxy_settings
+    proxy_settings = {}
 
-      proxy_settings['proxy_host']     = settings[json_config]['proxy_host']     || nil
-      proxy_settings['proxy_port']     = settings[json_config]['proxy_port']     || 3128
-      proxy_settings['proxy_username'] = settings[json_config]['proxy_username'] || ""
-      proxy_settings['proxy_password'] = settings[json_config]['proxy_password'] || ""
+    proxy_settings['proxy_host']     = settings[json_config]['proxy_host']     || nil
+    proxy_settings['proxy_port']     = settings[json_config]['proxy_port']     || 3128
+    proxy_settings['proxy_username'] = settings[json_config]['proxy_username'] || ''
+    proxy_settings['proxy_password'] = settings[json_config]['proxy_password'] || ''
 
-      proxy_settings
+    proxy_settings
   end
 
   def handle(pd_client = nil)
     incident_key_prefix = settings[json_config]['incident_key_prefix']
     description_prefix = settings[json_config]['description_prefix']
-    proxy_settings = get_proxy_settings
+    proxy_settings = proxy_settings()
     begin
       timeout(5) do
         if proxy_settings['proxy_host']
@@ -78,8 +78,7 @@ class PagerdutyHandler < Sensu::Handler
                                                  proxy_host: proxy_settings['proxy_host'],
                                                  proxy_port: proxy_settings['proxy_port'],
                                                  proxy_username: proxy_settings['proxy_username'],
-                                                 proxy_password: proxy_settings['proxy_password'],
-                                                )
+                                                 proxy_password: proxy_settings['proxy_password'])
         else
           pagerduty = pd_client || Pagerduty.new(api_key)
         end
