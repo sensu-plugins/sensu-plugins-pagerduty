@@ -5,6 +5,9 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 
 ## [Unreleased]
 
+### Added
+- Proxy support
+
 ## [1.0.0] - 2016-04-12
 
 NOTE: There is no new functionality in this release but with the addition of test coverage we are
