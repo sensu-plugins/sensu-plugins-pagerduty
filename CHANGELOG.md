@@ -6,7 +6,11 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 ## [Unreleased]
 
 ### Added
-- Proxy support
+- Proxy support (@lcrisci)
+- Support for Ruby 2.3
+
+### Removed
+- Support for Ruby 1.9.3
 
 ## [1.0.0] - 2016-04-12
 
