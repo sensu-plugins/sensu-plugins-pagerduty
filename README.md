@@ -119,7 +119,7 @@ And I also have the following client hash:
 ```
 
 
-If an `critical` event is triggered from "my.host.fqdn" that is not named `check_disk` it will alert the default (with value api_key: 12345).  If a `warning` event is triggered that is not `check_disk` it will alert the `low_proirity` escalation service.  If any `check_disk` alert is triggerd it will the alert the `ops` escalation. 
+If a `critical` event is triggered from "my.host.fqdn" that is not named `check_disk` it will alert the default (with value api_key: 12345).  If a `warning` event is triggered that is not `check_disk` it will alert the `low_proirity` escalation service.  If any `check_disk` alert is triggerd it will the alert the `ops` escalation.
 
 ## Installation
 
