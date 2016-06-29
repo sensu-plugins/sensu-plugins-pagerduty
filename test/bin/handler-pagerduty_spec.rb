@@ -40,7 +40,7 @@ describe 'Handlers' do
       expect(incident_key).to eq('i-424242/frontend_http_check')
     end
 
-    it 'should return incident key with warning on resolve' do
+    it 'should return incident key with critical on resolve' do
       io_obj = fixture('recovery_no_override_critical.json')
       @handler.read_event(io_obj)
       incident_key = @handler.incident_key
