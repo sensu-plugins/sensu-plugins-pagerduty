@@ -5,12 +5,16 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 
 ## [Unreleased]
 
+## [2.0.0] - 2016-06-29
 ### Added
 - Proxy support (@lcrisci)
 - Support for Ruby 2.3
 
 ### Removed
 - Support for Ruby 1.9.3
+
+### Changed
+- Update to Rubocop 0.40 and cleanup
 
 ## [1.0.0] - 2016-04-12
 
@@ -84,7 +88,8 @@ marking it as a stable 1.0.0 release.
 ### Added
 - initial release
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/1.0.0...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/2.0.0...HEAD
+[2.0.0]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/1.0.0...2.0.0
 [1.0.0]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/0.0.9...1.0.0
 [0.0.9]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/0.0.8...0.0.9
 [0.0.8]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/0.0.7...0.0.8
