@@ -80,6 +80,12 @@ describe 'Handlers' do
   end
 
   describe '#contexts' do
+    it 'should return list as default' do
+      io_obj = fixture('minimal_create.json')
+      @handler.read_event(io_obj)
+      expect(@handler.contexts).to eq([])
+    end
+
     it 'should return contexts hash from check' do
       io_obj = fixture('check_with_contexts.json')
       @handler.read_event(io_obj)

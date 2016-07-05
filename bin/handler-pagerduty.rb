@@ -68,7 +68,7 @@ class PagerdutyHandler < Sensu::Handler
   end
 
   def contexts
-    @contexts ||= @event['check']['pagerduty_contexts'] || {}
+    @contexts ||= @event['check']['pagerduty_contexts'] || []
   end
 
   def handle(pd_client = nil)
