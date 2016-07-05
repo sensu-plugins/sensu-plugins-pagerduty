@@ -52,6 +52,8 @@ In the Client hash you can define a `pager_team` key value pair.  If the the cli
 
 Please note, this sets the escalation path on the whole host. If you want more granular control on escalation paths please view the Mutator section below.
 
+In the Check hash you can define a `pagerduty_contexts` list to send contextual links and images with your events. This list should conform to the [PagerDuty documentation](https://developer.pagerduty.com/documentation/integration/events/trigger#contexts) about contexts.
+
 ## Usage of Priority Overide Mutator
 
 This mutator allows you to have fine grain control on PagerDuty escalation paths based on data within the client hash.  The mutator will look in the following locations where `#{event_level}` is `warning` and `critical` (unknown, is replaced by critical), and `#{check_name}` is the name of the check. Items located lower in the list take precedence:
