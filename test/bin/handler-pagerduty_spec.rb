@@ -79,6 +79,21 @@ describe 'Handlers' do
     end
   end
 
+  describe '#contexts' do
+    it 'should return contexts hash from check' do
+      io_obj = fixture('check_with_contexts.json')
+      @handler.read_event(io_obj)
+      expect(@handler.contexts).to eq(
+        [
+          {
+            'type' => 'link',
+            'href' => 'http://example.com/'
+          }
+        ]
+      )
+    end
+  end
+
   describe '#handle' do
     it 'should create ticket' do
       stub_pd_client = double
@@ -87,6 +102,14 @@ describe 'Handlers' do
       allow(@handler).to receive(:json_config).and_return('pagerduty')
       allow(@handler).to receive(:incident_key).and_return('stub_incident_key')
       allow(@handler).to receive(:event_summary).and_return('test_summary')
+      allow(@handler).to receive(:contexts).and_return(
+        [
+          {
+            'type' => 'link',
+            'href' => 'http://example.com/'
+          }
+        ]
+      )
       expect(stub_pd_client).to receive(:trigger).with(
         'test_summary',
         incident_key: 'stub_incident_key',
@@ -95,7 +118,13 @@ describe 'Handlers' do
           'occurrences' => 1,
           'check' => {},
           'client' => {}
-        }
+        },
+        contexts: [
+          {
+            'type' => 'link',
+            'href' => 'http://example.com/'
+          }
+        ]
       )
       @handler.handle(stub_pd_client)
     end

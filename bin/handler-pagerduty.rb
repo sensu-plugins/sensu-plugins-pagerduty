@@ -67,6 +67,10 @@ class PagerdutyHandler < Sensu::Handler
     proxy_settings
   end
 
+  def contexts
+    @contexts ||= @event['check']['pagerduty_contexts'] || {}
+  end
+
   def handle(pd_client = nil)
     incident_key_prefix = settings[json_config]['incident_key_prefix']
     description_prefix = settings[json_config]['description_prefix']
@@ -88,7 +92,8 @@ class PagerdutyHandler < Sensu::Handler
           when 'create'
             pagerduty.trigger([description_prefix, event_summary].compact.join(' '),
                               incident_key: [incident_key_prefix, incident_key].compact.join(''),
-                              details: @event)
+                              details: @event,
+                              contexts: contexts)
           when 'resolve'
             pagerduty.get_incident([incident_key_prefix, incident_key].compact.join('')).resolve(
               [description_prefix, event_summary].compact.join(' '), @event

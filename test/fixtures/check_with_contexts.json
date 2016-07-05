@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "occurrences": 1,
+  "client": {},
+  "check": {
+    "pagerduty_contexts": [
+      {
+        "type": "link",
+        "href": "http://example.com/"
+      }
+    ]
+  }
+}
