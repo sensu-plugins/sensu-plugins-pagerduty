@@ -76,7 +76,7 @@ class PagerdutyHandler < Sensu::Handler
     description_prefix = settings[json_config]['description_prefix']
     proxy_settings = proxy_settings()
     begin
-      timeout(5) do
+      Timeout.timeout(10) do
         if proxy_settings['proxy_host']
           pagerduty = pd_client || Pagerduty.new(api_key,
                                                  proxy_host: proxy_settings['proxy_host'],
