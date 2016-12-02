@@ -6,6 +6,7 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 ## [Unreleased]
 ### Added
 - Contexts support (@zroger)
+- Update timeout syntax and extend to 10 seconds. (@luckymike)
 
 ## [2.0.0] - 2016-06-29
 ### Added
@@ -39,8 +40,8 @@ marking it as a stable 1.0.0 release.
 
 ## [0.0.8] - 2015-12-10
 ### Added
-- Added a handler to allow overrides based on priority, now you can different 
-  alerts trigger different PagerDuty API endpoints. For example one can hit a high 
+- Added a handler to allow overrides based on priority, now you can different
+  alerts trigger different PagerDuty API endpoints. For example one can hit a high
   priority endpoint but warning can hit a lowpriority point.
 
 ### Changed
