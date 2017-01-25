@@ -120,6 +120,9 @@ And I also have the following client hash:
 }
 ```
 
+If a `critical` event is triggered from "my.host.fqdn" that is not named `check_disk` it will alert the default (with value api_key: 12345).  If a `warning` event is triggered that is not `check_disk` it will alert the `low_proirity` escalation service.  If any `check_disk` alert is triggerd it will the alert the `ops` escalation.
+
+
 ## Adding Dynamic Event Description Prefix 
 
 You can add a custom field from the Sensu client config as a description prefix, like the host name, to add more context to the event description:
@@ -132,8 +135,6 @@ You can add a custom field from the Sensu client config as a description prefix,
   }
 }
 ```
-
-If a `critical` event is triggered from "my.host.fqdn" that is not named `check_disk` it will alert the default (with value api_key: 12345).  If a `warning` event is triggered that is not `check_disk` it will alert the `low_proirity` escalation service.  If any `check_disk` alert is triggerd it will the alert the `ops` escalation.
 
 ## Installation
 
