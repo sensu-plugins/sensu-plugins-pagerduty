@@ -1,5 +1,6 @@
 {
   "pagerduty": {
+    "dynamic_description_prefix_key" : "name",
     "api_key": "BASE_KEY",
     "CHECK_OVERRIDE": {
       "api_key": "CHECK_OVERRIDE"
