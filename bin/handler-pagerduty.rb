@@ -70,15 +70,13 @@ class PagerdutyHandler < Sensu::Handler
   def contexts
     @contexts ||= @event['check']['pagerduty_contexts'] || []
   end
-  
-  def description_prefix
-    
-    if @event['client'].key?(settings[json_config]['dynamic_description_prefix_key'])
-      @description_prefix = "(#{@event['client'][settings[json_config]['dynamic_description_prefix_key']]})"
-    else
-      @description_prefix = settings[json_config]['description_prefix']
-    end
 
+  def description_prefix
+    @description_prefix = if @event['client'].key?(settings[json_config]['dynamic_description_prefix_key'])
+                            "(#{@event['client'][settings[json_config]['dynamic_description_prefix_key']]})"
+                          else
+                            settings[json_config]['description_prefix']
+                          end
   end
 
   def handle(pd_client = nil)

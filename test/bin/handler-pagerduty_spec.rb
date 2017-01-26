@@ -101,7 +101,6 @@ describe 'Handlers' do
   end
 
   describe '#handle' do
-    
     it 'should create ticket with dynamic perfix' do
       stub_pd_client = double
       io_obj = fixture('create_dynamic_prefix.json')
@@ -123,7 +122,7 @@ describe 'Handlers' do
         incident_key: 'stub_incident_key',
         details: {
           'action' => 'create',
-          'client'=>{'name'=>'i-424242'},
+          'client' => { 'name' => 'i-424242' },
           'occurrences' => 1,
           'check' => {}
         },
@@ -136,7 +135,6 @@ describe 'Handlers' do
       )
       @handler.handle(stub_pd_client)
     end
-    
 
     it 'should create ticket' do
       stub_pd_client = double
