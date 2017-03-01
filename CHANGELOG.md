@@ -5,8 +5,9 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 
 ## [Unreleased]
 ### Added
-- Contexts support (@zroger)
+- Add contexts support (@zroger)
 - Update timeout syntax and extend to 10 seconds. (@luckymike)
+- Allow adding some dynamic fields (from the event sensu client config) to the PD event description (@Oded-B)
 
 ## [2.0.0] - 2016-06-29
 ### Added
