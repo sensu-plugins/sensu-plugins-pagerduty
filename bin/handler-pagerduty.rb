@@ -71,9 +71,17 @@ class PagerdutyHandler < Sensu::Handler
     @contexts ||= @event['check']['pagerduty_contexts'] || []
   end
 
+  def description_prefix
+    @description_prefix = if @event['client'].key?(settings[json_config]['dynamic_description_prefix_key'])
+                            "(#{@event['client'][settings[json_config]['dynamic_description_prefix_key']]})"
+                          else
+                            settings[json_config]['description_prefix']
+                          end
+  end
+
   def handle(pd_client = nil)
     incident_key_prefix = settings[json_config]['incident_key_prefix']
-    description_prefix = settings[json_config]['description_prefix']
+    description_prefix = description_prefix()
     proxy_settings = proxy_settings()
     begin
       Timeout.timeout(10) do

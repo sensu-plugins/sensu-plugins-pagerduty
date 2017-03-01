@@ -101,6 +101,41 @@ describe 'Handlers' do
   end
 
   describe '#handle' do
+    it 'should create ticket with dynamic perfix' do
+      stub_pd_client = double
+      io_obj = fixture('create_dynamic_prefix.json')
+      @handler.read_event(io_obj)
+      allow(@handler).to receive(:event_summary).and_return('(i-424242) test_summary')
+      allow(@handler).to receive(:json_config).and_return('pagerduty')
+      allow(@handler).to receive(:incident_key).and_return('stub_incident_key')
+      allow(@handler).to receive(:event_summary).and_return('test_summary')
+      allow(@handler).to receive(:contexts).and_return(
+        [
+          {
+            'type' => 'link',
+            'href' => 'http://example.com/'
+          }
+        ]
+      )
+      expect(stub_pd_client).to receive(:trigger).with(
+        '(i-424242) test_summary',
+        incident_key: 'stub_incident_key',
+        details: {
+          'action' => 'create',
+          'client' => { 'name' => 'i-424242' },
+          'occurrences' => 1,
+          'check' => {}
+        },
+        contexts: [
+          {
+            'type' => 'link',
+            'href' => 'http://example.com/'
+          }
+        ]
+      )
+      @handler.handle(stub_pd_client)
+    end
+
     it 'should create ticket' do
       stub_pd_client = double
       io_obj = fixture('minimal_create.json')
