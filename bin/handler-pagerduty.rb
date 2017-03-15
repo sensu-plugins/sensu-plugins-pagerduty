@@ -84,6 +84,7 @@ class PagerdutyHandler < Sensu::Handler
     description_prefix = description_prefix()
     proxy_settings = proxy_settings()
     begin
+      tries ||= 3
       Timeout.timeout(10) do
         if proxy_settings['proxy_host']
           pagerduty = pd_client || Pagerduty.new(api_key,
@@ -109,12 +110,20 @@ class PagerdutyHandler < Sensu::Handler
           end
           puts 'pagerduty -- ' + @event['action'].capitalize + 'd incident -- ' + incident_key
         rescue Net::HTTPServerException => error
-          puts 'pagerduty -- failed to ' + @event['action'] + ' incident -- ' + incident_key + ' -- ' +
-               error.response.code + ' ' + error.response.message + ': ' + error.response.body
+          if (tries -= 1) > 0
+            retry
+          else
+            puts 'pagerduty -- failed to ' + @event['action'] + ' incident -- ' + incident_key + ' -- ' +
+                 error.response.code + ' ' + error.response.message + ': ' + error.response.body
+          end
         end
       end
     rescue Timeout::Error
-      puts 'pagerduty -- timed out while attempting to ' + @event['action'] + ' a incident -- ' + incident_key
+      if (tries -= 1) > 0
+        retry
+      else
+        puts 'pagerduty -- timed out while attempting to ' + @event['action'] + ' a incident -- ' + incident_key
+      end
     end
   end
 end
