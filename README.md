@@ -14,7 +14,7 @@
 
 ## Usage of Handler
 
-PagerDuty supports dedup. Dedup is useful when you want to create a single alert (for a group of checks). Only one alert is sent out even if the checks fail at the same time. The following example groups check_service_`n` together for a single host. `dedup_rules` take in regular expressions as keys and re-write rules as values. `dedup_rules` entry is optional. 
+PagerDuty supports dedup. Dedup is useful when you want to create a single alert (for a group of checks). Only one alert is sent out even if the checks fail at the same time. The following example groups check_service_`n` together for a single host. `dedup_rules` take in regular expressions as keys and re-write rules as values. `dedup_rules` entry is optional.
 
 ```
 {
@@ -33,7 +33,7 @@ PagerDuty supports dedup. Dedup is useful when you want to create a single alert
 }
 ```
 
-In the Client hash you can define a `pager_team` key value pair.  If the the client hash contains the `pager_team` key it will then no longer use the default `pagerduty.api_key` from the above hash but will look for the value given in the client. The following client hash will  alert using the team_name1 api key instead of the default api_key. This will allow different teams/hosts to alert different escalation paths. 
+In the Client hash you can define a `pager_team` key value pair.  If the the client hash contains the `pager_team` key it will then no longer use the default `pagerduty.api_key` from the above hash but will look for the value given in the client. The following client hash will  alert using the team_name1 api key instead of the default api_key. This will allow different teams/hosts to alert different escalation paths.
 
 ```
 {
@@ -123,7 +123,7 @@ And I also have the following client hash:
 If a `critical` event is triggered from "my.host.fqdn" that is not named `check_disk` it will alert the default (with value api_key: 12345).  If a `warning` event is triggered that is not `check_disk` it will alert the `low_proirity` escalation service.  If any `check_disk` alert is triggerd it will the alert the `ops` escalation.
 
 
-## Adding Dynamic Event Description Prefix 
+## Adding Dynamic Event Description Prefix
 
 You can add a custom field from the Sensu client config as a description prefix, like the host name, to add more context to the event description:
 
@@ -132,6 +132,17 @@ You can add a custom field from the Sensu client config as a description prefix,
   "pagerduty": {
     "api_key": "12345",
     "dynamic_description_prefix_key" : "name",
+  }
+}
+```
+
+## Flapping Incidents
+By default handlers do not handle flapping incidents: [handler configuration documentation](https://sensuapp.org/docs/0.24/reference/handlers.html#handler-configuration) in order to change this you must set handle_flapping in your handler config like this:
+```json
+{
+  "pagerduty": {
+    "api_key": "12345",
+    "handle_flapping": true
   }
 }
 ```

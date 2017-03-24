@@ -98,7 +98,7 @@ class PagerdutyHandler < Sensu::Handler
 
         begin
           case @event['action']
-          when 'create'
+          when 'create', 'flapping'
             pagerduty.trigger([description_prefix, event_summary].compact.join(' '),
                               incident_key: [incident_key_prefix, incident_key].compact.join(''),
                               details: @event,
