@@ -1,9 +1,13 @@
-#Change Log
+# Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachangelog.com/)
 
 ## [Unreleased]
+
+## [2.2.0] - 2017-03-23
+### Added
+- Add retries for Timeouts and HTTP errors (@johanek)
 
 ## [2.1.0] - 2017-02-28
 ### Added
@@ -94,7 +98,8 @@ marking it as a stable 1.0.0 release.
 ### Added
 - initial release
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/2.1.0...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/2.2.0...HEAD
+[2.2.0]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/2.1.0...2.2.0
 [2.1.0]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/2.0.0...2.1.0
 [2.0.0]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/1.0.0...2.0.0
 [1.0.0]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/0.0.9...1.0.0
