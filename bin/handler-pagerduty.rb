@@ -10,7 +10,7 @@
 #
 # Note: The sensu api token could also be configured on a per client or per check basis.
 #       By defining the "pager_team" attribute in the client config file or the check config.
-#       The override order will be client > check > json_config
+#       The override order will be check > client > json_config
 #
 # Dependencies:
 #
