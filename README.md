@@ -54,6 +54,27 @@ Please note, this sets the escalation path on the whole host. If you want more g
 
 In the Check hash you can define a `pagerduty_contexts` list to send contextual links and images with your events. This list should conform to the [PagerDuty documentation](https://developer.pagerduty.com/documentation/integration/events/trigger#contexts) about contexts.
 
+Another approach would be define this on a per check basis like so:
+```
+{
+  "checks": {
+    "cpu": {
+      "command": "check-cpu.rb -w 90 -c 100",
+      "subscribers": [
+        "base"
+      ],
+      "handlers": [
+        "pagerduty"
+      ],
+      "interval": 15,
+      "pager_team": "team1",
+      "notification": "CPU is running hot!",
+      "occurrences": 8
+    }
+  }
+}
+```
+
 ## Usage of Priority Overide Mutator
 
 This mutator allows you to have fine grain control on PagerDuty escalation paths based on data within the client hash.  The mutator will look in the following locations where `#{event_level}` is `warning` and `critical` (unknown, is replaced by critical), and `#{check_name}` is the name of the check. Items located lower in the list take precedence:
