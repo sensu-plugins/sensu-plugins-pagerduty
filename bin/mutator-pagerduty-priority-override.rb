@@ -51,6 +51,7 @@ module Sensu
           elsif !baseline_override.nil?
             event[:client][:pager_team] = baseline_override
           end
+          event[:check][:pager_status] = status
           JSON.dump(event)
         end
 
