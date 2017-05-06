@@ -9,7 +9,7 @@
       "webserver",
       "mysql"
     ],
-    "pager_team": "CLIENT_OVERRIDE",
+    "pager_team": "TEST_TEAM",
     "timestamp": 1326390159,
     "pd_override": {
       "frontend_http_check": {
