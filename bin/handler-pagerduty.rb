@@ -10,7 +10,7 @@
 #
 # Note: The sensu api token could also be configured on a per client or per check basis.
 #       By defining the "pager_team" attribute in the client config file or the check config.
-#       The override order will be client > check > json_config
+#       The override order will be check > client > json_config
 #
 # Dependencies:
 #
@@ -47,10 +47,10 @@ class PagerdutyHandler < Sensu::Handler
 
   def api_key
     @api_key ||=
-      if @event['client']['pager_team']
-        settings[json_config][@event['client']['pager_team']]['api_key']
-      elsif @event['check']['pager_team']
+      if @event['check']['pager_team']
         settings[json_config][@event['check']['pager_team']]['api_key']
+      elsif @event['client']['pager_team']
+        settings[json_config][@event['client']['pager_team']]['api_key']
       else
         settings[json_config]['api_key']
       end

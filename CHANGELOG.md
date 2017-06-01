@@ -4,6 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachangelog.com/)
 
 ## [Unreleased]
+### Breaking Change
+- changed the precedence of pager_team evaluation from `client -> check -> json_config`  to `check -> client -> json_config` (@guru-beach)
 ### Added
 - support for flapping events to be created
 

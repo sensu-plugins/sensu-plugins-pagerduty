@@ -24,7 +24,6 @@
     "subscribers":[
       "frontend"
     ],
-    "pager_team": "CHECK_OVERRIDE",
     "interval": 60,
     "command": "check_http -I 127.0.0.1 -u http://web.example.com/healthcheck.html -R \'pageok\'",
     "output": "HTTP CRITICAL: HTTP/1.1 503 Service Temporarily Unavailable",
