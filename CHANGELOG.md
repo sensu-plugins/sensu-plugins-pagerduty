@@ -4,10 +4,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachangelog.com/)
 
 ## [Unreleased]
+## [3.0.0] - 2017-06-01
 ### Breaking Change
 - changed the precedence of pager_team evaluation from `client -> check -> json_config`  to `check -> client -> json_config` (@guru-beach)
 ### Added
-- support for flapping events to be created
+- support for flapping events to be created (@majormoses)
 
 ## [2.2.0] - 2017-03-23
 ### Added
@@ -102,7 +103,8 @@ marking it as a stable 1.0.0 release.
 ### Added
 - initial release
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/2.2.0...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/3.0.0...HEAD
+[3.0.0]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/2.2.0...3.0.0
 [2.2.0]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/2.1.0...2.2.0
 [2.1.0]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/2.0.0...2.1.0
 [2.0.0]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/1.0.0...2.0.0
