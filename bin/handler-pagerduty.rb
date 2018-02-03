@@ -25,9 +25,9 @@ require 'pagerduty'
 #
 class PagerdutyHandler < Sensu::Handler
   option :json_config,
-         description: 'Config Name',
-         short: '-j JsonConfig',
-         long: '--json_config JsonConfig',
+         description: 'Config key Name, this is not a path to a file but rather the key name within sensu to check',
+         short: '-j JsonConfigKey',
+         long: '--json_config JsonConfigKey',
          required: false,
          default: 'pagerduty'
 
@@ -80,6 +80,10 @@ class PagerdutyHandler < Sensu::Handler
   end
 
   def handle(pd_client = nil)
+    if settings[json_config].nil?
+      p "invalid config: #{options[:json_config]} you need to pass a key and not a file"
+      exit 3 # unknown
+    end
     incident_key_prefix = settings[json_config]['incident_key_prefix']
     description_prefix = description_prefix()
     proxy_settings = proxy_settings()

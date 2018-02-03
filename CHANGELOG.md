@@ -6,6 +6,10 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 ## [Unreleased]
 ### Added
 - ruby 2.4 testing (@majormoses)
+- error handling when `json_config` key is not found to help users deal with the problem. Not great but better than a `NilClass` error (@majormoses)
+
+### Changed
+- changed the description of `json_config` to reflect that this is a key not the json file (@majormoses)
 
 ### Fixed
 - PR template typo
