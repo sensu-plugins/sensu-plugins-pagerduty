@@ -49,7 +49,7 @@ class PagerdutyHandler < Sensu::Handler
     @api_key ||=
       if @event['check']['pager_team']
         settings[json_config][@event['check']['pager_team']]['api_key']
-      elsif settings[json_config][@event['client']['pager_team']].nil?
+      elsif @event['client']['pager_team'] && settings[json_config][@event['client']['pager_team']].nil?
         puts "you configured your client to use a pager team of #{@event['client']['pager_team']} but it was nil, falling back to default key"
         settings[json_config]['api_key']
       elsif @event['client']['pager_team']
