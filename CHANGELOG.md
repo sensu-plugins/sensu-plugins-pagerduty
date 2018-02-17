@@ -1,15 +1,20 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachangelog.com/)
+This CHANGELOG follows the format listed [here](https://github.com/sensu-plugins/community/blob/master/HOW_WE_CHANGELOG.md)
 
 ## [Unreleased]
+
+## [3.0.1] - 2018-02-16
 ### Added
 - ruby 2.4 testing (@majormoses)
 
 ### Fixed
-- PR template typo
+- PR template typo (@majormoses)
 - if pager_team is not found in the handler json config, the default key will be used instead (@internaught)
+
+### Changed
+- updated changelog guidelines location (@majormoses)
 
 ## [3.0.0] - 2017-06-01
 ### Breaking Change
@@ -110,7 +115,8 @@ marking it as a stable 1.0.0 release.
 ### Added
 - initial release
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/3.0.0...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/3.0.1...HEAD
+[3.0.1]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/3.0.0...3.0.1
 [3.0.0]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/2.2.0...3.0.0
 [2.2.0]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/2.1.0...2.2.0
 [2.1.0]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/2.0.0...2.1.0
