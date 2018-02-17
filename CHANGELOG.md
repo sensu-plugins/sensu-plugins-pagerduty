@@ -9,6 +9,7 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 
 ### Fixed
 - PR template typo
+- if pager_team is not found in the handler json config, the default key will be used instead (@internaught)
 
 ## [3.0.0] - 2017-06-01
 ### Breaking Change

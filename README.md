@@ -33,7 +33,7 @@ PagerDuty supports dedup. Dedup is useful when you want to create a single alert
 }
 ```
 
-In the Client hash you can define a `pager_team` key value pair.  If the the client hash contains the `pager_team` key it will then no longer use the default `pagerduty.api_key` from the above hash but will look for the value given in the client. The following client hash will  alert using the team_name1 api key instead of the default api_key. This will allow different teams/hosts to alert different escalation paths.
+In the Client hash you can define a `pager_team` key value pair.  If the the client hash contains the `pager_team` key it will then no longer use the default `pagerduty.api_key` from the above hash but will look for the value given in the client. If the value given in the client is not found in the handler specified, then the default `pagerduty.api_key` will be used. The following client hash will alert using the team_name1 api key instead of the default api_key. This will allow different teams/hosts to alert different escalation paths.
 
 ```
 {
