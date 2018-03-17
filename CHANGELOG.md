@@ -5,13 +5,16 @@ This CHANGELOG follows the format listed [here](https://github.com/sensu-plugins
 
 ## [Unreleased]
 
-## [3.0.1] - 2018-02-16
+## [3.1.0] - 2018-03-17
 ### Added
-- ruby 2.4 testing (@majormoses)
 - error handling when `json_config` key is not found to help users deal with the problem. Not great but better than a `NilClass` error (@majormoses)
 
 ### Changed
 - changed the description of `json_config` to reflect that this is a key not the json file (@majormoses)
+
+## [3.0.1] - 2018-02-16
+### Added
+- ruby 2.4 testing (@majormoses)
 
 ### Fixed
 - PR template typo (@majormoses)
@@ -119,7 +122,8 @@ marking it as a stable 1.0.0 release.
 ### Added
 - initial release
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/3.0.1...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/3.1.0...HEAD
+[3.1.0]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/3.0.1...3,1.0
 [3.0.1]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/3.0.0...3.0.1
 [3.0.0]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/2.2.0...3.0.0
 [2.2.0]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/2.1.0...2.2.0
