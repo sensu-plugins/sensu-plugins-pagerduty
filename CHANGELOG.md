@@ -4,8 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format listed [here](https://github.com/sensu-plugins/community/blob/master/HOW_WE_CHANGELOG.md)
 
 ## [Unreleased]
-### Changed
-- Using sensu-plugin version 2.0.0
+### Breaking Changes
+- Bumped dependency of `sensu-plugin` to 2.x which will globally disable deprecated event filtering. You can read about it [here](https://github.com/sensu-plugins/sensu-plugin/blob/master/CHANGELOG.md#v145---2017-03-07) (@rajiv-g)
 
 ## [3.1.0] - 2018-03-17
 ### Added
