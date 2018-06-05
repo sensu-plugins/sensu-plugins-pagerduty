@@ -14,7 +14,7 @@
 #
 # Dependencies:
 #
-#   sensu-plugin >= 1.0.0
+#   sensu-plugin ~> 2.5
 #
 
 require 'sensu-handler'
