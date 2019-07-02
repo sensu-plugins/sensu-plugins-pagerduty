@@ -30,7 +30,7 @@ deploy:
     rvm: 2.4.1
     repo: sensu-plugins/sensu-plugins-pagerduty
 - provider: script
-  script: bonsai/ruby-runtime/travis-build-ruby-plugin-assets.sh sensu-plugins-uptime-checks
+  script: bonsai/ruby-runtime/travis-build-ruby-plugin-assets.sh sensu-plugins-pagerduty
   skip_cleanup: true
   on:
     tags: true
