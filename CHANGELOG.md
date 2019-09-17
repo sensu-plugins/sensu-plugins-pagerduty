@@ -4,9 +4,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format listed [here](https://github.com/sensu-plugins/community/blob/master/HOW_WE_CHANGELOG.md)
 
 ## [Unreleased]
+
+## [5.0.0] - 2019-09-16
 ### Breaking Changes
 - Bump `sensu-plugin` dependency from `~> 2.5` to `~> 4.0` you can read the changelog entries for [4.0](https://github.com/sensu-plugins/sensu-plugin/blob/master/CHANGELOG.md#400---2018-02-17), [3.0](https://github.com/sensu-plugins/sensu-plugin/blob/master/CHANGELOG.md#300---2018-12-04), and [2.0](https://github.com/sensu-plugins/sensu-plugin/blob/master/CHANGELOG.md#v200---2017-03-29)
-- Bump `ruby-version` from `~> 2.0` to `~> 2.3` 
+- Bump `ruby-version` from `~> 2.0` to `~> 2.3`
 
 ### Added
 - Travis build automation to generate Sensu Asset tarballs that can be used n conjunction with Sensu provided ruby runtime assets and the Bonsai Asset Index
@@ -137,7 +139,8 @@ marking it as a stable 1.0.0 release.
 ### Added
 - initial release
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/4.1.0...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/5.0.0...HEAD
+[5.0.0]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/4.1.0...5.0.0
 [4.1.0]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/4.0.0...4.1.0
 [4.0.0]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/3,1,0...4.0.0
 [3.1.0]: https://github.com/sensu-plugins/sensu-plugins-pagerduty/compare/3.0.1...3,1.0
