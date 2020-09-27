@@ -29,7 +29,7 @@ Gem::Specification.new do |s|
   s.version                = SensuPluginsPagerduty::Version::VER_STRING
 
   s.add_runtime_dependency 'sensu-plugin', '~> 4.0'
-  s.add_runtime_dependency 'pagerduty',    '= 2.1.2'
+  s.add_runtime_dependency 'pagerduty',    '= 3.0.0'
 
   s.add_development_dependency 'bundler',                   '~> 1.7'
   s.add_development_dependency 'github-markup',             '~> 3.0'
